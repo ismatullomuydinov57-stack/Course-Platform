@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block course %}
+<div class="list-group">
+                {% for course in courses %}
+                <a href="{% url 'course' course.id %}"
+                   class="list-group-item list-group-item-action">{{course.name}}</a>
+                {% endfor %}
+            </div>
+{% endblock course %}
+
+{% block student %}
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for student in students%}
+    <div class="col">
+        <div class="card h-100">
+                     {% if student.image %}
+    <img src="{{ student.image.url }}" class="card-img-top" alt="...">
+{% else %}
+    <img src="/media/default.png" class="card-img-top" alt="...">
+{% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{student.full_name}}</h5>
+                <p class="card-text">student.phone_number</p>
+            </div>
+        </div>
+    </div>
+    {% endfor%}
+</div>
+{% endblock student %}

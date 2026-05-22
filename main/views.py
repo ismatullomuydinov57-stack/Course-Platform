@@ -51,3 +51,6 @@ def create_like(request, student_id):
     if not created:
         like.delete()
     return redirect('home')
+
+from django.contrib.auth import logout
+from django.shortcuts import render, redirect

@@ -22,6 +22,10 @@
             <div class="card-body">
                 <h5 class="card-title"><a href="{% url 'student' student.id %}">{{student.full_name}}</a></h5>
                 <p class="card-text">{{student.phone_number}}</p>
+                <p class="card-text"><a href="{% url 'create_like' student.id %}">
+    <i class="fa-{% if student.like %}solid{% else %}regular{% endif %} fa-bookmark"></i>
+</a>  </p>
+
             </div>
         </div>
     </div>

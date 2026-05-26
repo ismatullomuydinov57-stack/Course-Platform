@@ -10,6 +10,16 @@
 <div class="container">
    {% include 'layout/navbar.html'%}
 
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+   {% block main%}
+
     <div class="mt-5 mb-5 d-flex justify-content-between">
 
         <div class="col-3">
@@ -24,6 +34,7 @@
 
     </div>
 
+    {% endblock main%}
 
   {% include 'layout/footer.html'%}
 
